@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models.Actividad import Actividad
 from .models.Afeccion import Afeccion
-from .models.Asignacion_actividad import Asignacion_actividad
+from .models.Asignacion_actividad import Asignacion_Actividad
 from .models.Bancal import Bancal
 from .models.Control import Control
 from .models.Cultivo import Cultivo
@@ -15,7 +15,7 @@ from .models.Tipo_Plaga import Tipo_Plaga
 # Register your models here.
 admin.site.register(Actividad)
 admin.site.register(Afeccion)
-admin.site.register(Asignacion_actividad)
+admin.site.register(Asignacion_Actividad)
 admin.site.register(Bancal)
 admin.site.register(Control)
 admin.site.register(Cultivo)
