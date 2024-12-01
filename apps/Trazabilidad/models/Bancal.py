@@ -1,7 +1,6 @@
 from django.db import models
 from .Lote import Lote
 from .Cultivo import Cultivo
-from apps.IoT.models.Sensor import Sensor
 
 class Bancal(models.Model):
     nombre = models.CharField(max_length=100)
