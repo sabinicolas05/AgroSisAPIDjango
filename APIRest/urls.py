@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 #Importaciones JWT
 from rest_framework_simplejwt.views import (
@@ -43,6 +43,37 @@ schema_view = get_schema_view(
    permission_classes=(permissions.AllowAny,),
 )
 
+#Importacion de los routers
+#FINANZAS
+from apps.Finanzas.routers.PagoRouter import PagoRouter
+from apps.Finanzas.routers.ProduccionRouter import ProduccionRouter
+from apps.Finanzas.routers.ResiduoRouter import ResiduoRouter
+from apps.Finanzas.routers.VentaRouter import VentaRouter
+#INVENTARIO
+from apps.Inventario.routers.HerramientaRouter import HerramientaRouter
+from apps.Inventario.routers.InsumoRouter import InsumoRouter
+from apps.Inventario.routers.InventarioRouter import InventarioRouter
+from apps.Inventario.routers.Tipo_HerramientaRouter import Tipo_HerramientaRouter
+from apps.Inventario.routers.Tipo_InsumoRouter import Tipo_InsumoRouter
+#IOT
+from apps.IoT.routers.ConfiguracionRouter import ConfiguracionRouter
+from apps.IoT.routers.SensorRouter import SensorRouter
+from apps.IoT.routers.Tipo_SensorRouter import Tipo_SensorRouter
+#TRAZABILIDAD
+from apps.Trazabilidad.routers.ActividadRouter import ActividadRouter
+from apps.Trazabilidad.routers.AfeccionRouter import AfeccionRouter
+from apps.Trazabilidad.routers.Asignacion_ActividadRouter import Asignacion_ActividadRouter
+from apps.Trazabilidad.routers.BancalRouter import BancalRouter
+from apps.Trazabilidad.routers.ControlRouter import ControlRouter
+from apps.Trazabilidad.routers.CultivoRouter import CultivoRouter
+from apps.Trazabilidad.routers.EspecieRouter import EspecieRouter
+from apps.Trazabilidad.routers.LoteRouter import LoteRouter
+from apps.Trazabilidad.routers.NotificacionRouter import NotificacionRouter
+from apps.Trazabilidad.routers.PlagaRouter import PlagaRouter
+from apps.Trazabilidad.routers.SemilleroRouter import SemilleroRouter
+from apps.Trazabilidad.routers.Tipo_EspecieRouter import Tipo_EspecieRouter
+from apps.Trazabilidad.routers.Tipo_PlagaRouter import Tipo_PlagaRouter
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     #URLs de JWT
@@ -53,4 +84,39 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     
+    #Routers de las aplicaciones
+    
+    # Finanzas
+    path('api/pago/', include(PagoRouter.urls)),
+    path('api/produccion/', include(ProduccionRouter.urls)),
+    path('api/residuo/', include(ResiduoRouter.urls)),
+    path('api/venta/', include(VentaRouter.urls)),
+
+    # Inventario
+    path('api/herramienta/', include(HerramientaRouter.urls)),
+    path('api/insumo/', include(InsumoRouter.urls)),
+    path('api/inventario/', include(InventarioRouter.urls)),
+    path('api/tipo_herramienta/', include(Tipo_HerramientaRouter.urls)),
+    path('api/tipo_insumo/', include(Tipo_InsumoRouter.urls)),
+
+    # IoT
+    path('api/configuracion/', include(ConfiguracionRouter.urls)),
+    path('api/sensor/', include(SensorRouter.urls)),
+    path('api/tipo_sensor/', include(Tipo_SensorRouter.urls)),
+
+    # Trazabilidad
+    path('api/actividad/', include(ActividadRouter.urls)),
+    path('api/afeccion/', include(AfeccionRouter.urls)),
+    path('api/asignacion_actividad/', include(Asignacion_ActividadRouter.urls)),
+    path('api/bancal/', include(BancalRouter.urls)),
+    path('api/control/', include(ControlRouter.urls)),
+    path('api/cultivo/', include(CultivoRouter.urls)),
+    path('api/especie/', include(EspecieRouter.urls)),
+    path('api/lote/', include(LoteRouter.urls)),
+    path('api/notificacion/', include(NotificacionRouter.urls)),
+    path('api/plaga/', include(PlagaRouter.urls)),
+    path('api/semillero/', include(SemilleroRouter.urls)),
+    path('api/tipo_especie/', include(Tipo_EspecieRouter.urls)),
+    path('api/tipo_plaga/', include(Tipo_PlagaRouter.urls)),
+
 ]
