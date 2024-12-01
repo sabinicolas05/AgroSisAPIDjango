@@ -41,7 +41,7 @@ class Usuario(AbstractUser):
     telefono = models.CharField(max_length=20,null=True)
     email = models.EmailField(max_length=40,unique=True)
     
-    REQUIRED_FIELDS = ['identificacion','email','username','password']
+    REQUIRED_FIELDS = ['identificacion','email']
     objects = UsuarioFormulario()
 
     def __str__(self):
