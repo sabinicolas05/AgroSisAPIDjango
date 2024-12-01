@@ -3,7 +3,7 @@ from .Actividad import Actividad
 from apps.Inventario.models.Inventario import Inventario
 from apps.Users.models import Usuario
 
-class Asignacion_actividad(models.Model):
+class Asignacion_Actividad(models.Model):
     fk_actividad = models.ForeignKey(Actividad,on_delete=models.SET_NULL,null=True)
     fk_inventario = models.ForeignKey(Inventario,on_delete=models.SET_NULL,null=True)
     fk_usuario = models.ForeignKey(Usuario,on_delete=models.SET_NULL,null=True)
