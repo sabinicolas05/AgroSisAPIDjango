@@ -1,6 +1,7 @@
 from django.db import models
 from .Tipo_Sensor import Tipo_Sensor
 from .Configuracion import Configuracion
+from apps.Trazabilidad.models.Bancal import Bancal
 
 class Sensor(models.Model):
     fk_bancal = models.ForeignKey(Bancal,on_delete=models.SET_NULL,null=True)
