@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.Trazabilidad',
     'apps.Users',
     'rest_framework',
+    'rest_framework_simplejwt'
 
 ]
 
