@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'DjangoRest',
         'USER': 'postgres',
-        'PASSWORD': '123',
+        'PASSWORD': 'adso2024',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -140,6 +141,12 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
+}
+
+
+SIMPLE_JWT = {
+   'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=60),
+   'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7), 
 }
 
 AUTH_USER_MODEL = 'Users.Usuario'
