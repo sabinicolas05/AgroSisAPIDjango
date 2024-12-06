@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'apps.Trazabilidad',
     'apps.Users',
     'rest_framework',
-    'rest_framework_simplejwt'
+    'rest_framework_simplejwt',
+    'chanels'
 
 ]
 
@@ -143,3 +144,14 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'Users.Usuario'
+
+
+
+
+ASGI_APPLICATION = "APIRest.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+
+    },
+}
