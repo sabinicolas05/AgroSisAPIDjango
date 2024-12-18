@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,8 +45,7 @@ INSTALLED_APPS = [
     'apps.Trazabilidad',
     'apps.Users',
     'rest_framework',
-    'rest_framework_simplejwt',
-    'chanels'
+    'rest_framework_simplejwt'
 
 ]
 
@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'APIRest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DjangoRest',
+        'NAME': 'agrosis_e',
         'USER': 'postgres',
-        'PASSWORD': '123',
+        'PASSWORD': 'hate',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -143,15 +143,10 @@ REST_FRAMEWORK = {
     )
 }
 
-AUTH_USER_MODEL = 'Users.Usuario'
 
-
-
-
-ASGI_APPLICATION = "APIRest.asgi.application"
-
-CHANNEL_LAYERS = {
-    "default": {
-
-    },
+SIMPLE_JWT = {
+   'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=60),
+   'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7), 
 }
+
+AUTH_USER_MODEL = 'Users.Usuario'
