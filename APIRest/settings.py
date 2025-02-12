@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     'apps.Trazabilidad',
     'apps.Users',
     'rest_framework',
-    'rest_framework_simplejwt'
-
+    'rest_framework_simplejwt',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +77,15 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'APIRest.wsgi.application'
+# WebSocket Configuración
+ASGI_APPLICATION = 'APIRest.asgi.application'
 
+# Rutas de WebSocket
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -142,7 +149,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
-
 
 SIMPLE_JWT = {
    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=60),
