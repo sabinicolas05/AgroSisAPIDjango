@@ -1,4 +1,4 @@
-# consumers.py en APIRest
+# APIRest/consumers.py
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 
