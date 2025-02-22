@@ -32,21 +32,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'drf_yasg',
-    'apps.Finanzas',
-    'apps.Inventario',
-    'apps.IoT',
-    'apps.Trazabilidad',
-    'apps.Users',
-    'rest_framework',
-    'rest_framework_simplejwt'
-
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes", 
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "drf_yasg",
+    "apps.Finanzas",
+    "apps.Inventario",
+    "apps.IoT",
+    "apps.Trazabilidad",
+    "apps.Users",
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "channels",
 ]
 
 MIDDLEWARE = [
@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'APIRest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DjangoRest',
+        'NAME': 'agrosis_proyecto',
         'USER': 'postgres',
-        'PASSWORD': 'adso2024',
+        'PASSWORD': 'hate',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -150,3 +150,10 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = 'Users.Usuario'
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
