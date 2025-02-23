@@ -1,5 +1,3 @@
-#apps\Trazabilidad\apps.py
-
 from django.apps import AppConfig
 
 class TrazabilidadConfig(AppConfig):
@@ -7,6 +5,6 @@ class TrazabilidadConfig(AppConfig):
     name = "apps.Trazabilidad"
 
     def ready(self):
-        import apps.Trazabilidad.socket.signals
-
-
+        print("Cargando señales de Trazabilidad...")
+        import apps.Trazabilidad.socket.signals  # Importar las señales
+        print("Señales cargadas.")

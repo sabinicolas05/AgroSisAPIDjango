@@ -17,6 +17,7 @@ def notificar_nuevo_objeto(sender, instance, created, **kwargs):
 
         # Obtener el canal
         channel_layer = get_channel_layer()
+        logger.info(f"Channel Layer obtenido: {channel_layer}")
         if not channel_layer:
             logger.warning("No se pudo obtener el canal de WebSockets.")
             return
@@ -33,5 +34,6 @@ def notificar_nuevo_objeto(sender, instance, created, **kwargs):
                 })
             }
         )
+        logger.info(f"Mensaje enviado al grupo: objects_group")
     except Exception as e:
         logger.error(f"Error al enviar el mensaje WebSocket: {e}", exc_info=True)
